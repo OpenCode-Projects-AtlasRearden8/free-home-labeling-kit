@@ -1,0 +1,298 @@
+/* Shared print stylesheet for the free-home-labeling-kit sheets.
+   Every sheet targets US Letter (8.5 x 11 in). Keep ink low: thin
+   borders, gray fills, generous write-in space. */
+
+@page {
+  size: letter portrait;
+  margin: 0.42in;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.35;
+  font-size: 10pt;
+}
+
+article.sheet {
+  page-break-after: always;
+}
+
+article.sheet:last-of-type {
+  page-break-after: auto;
+}
+
+/* ---------- Page header ---------- */
+.sheet-head {
+  border-bottom: 2px solid #2b2b2b;
+  padding-bottom: 0.12in;
+  margin-bottom: 0.18in;
+}
+
+.sheet-head h1 {
+  font-size: 17pt;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.04in;
+}
+
+.sheet-head .why {
+  color: #444;
+  font-size: 9.5pt;
+}
+
+.how {
+  background: #f3f3f0;
+  border: 0.5px solid #c9c9c2;
+  border-radius: 4px;
+  padding: 0.1in 0.14in;
+  margin-bottom: 0.2in;
+  font-size: 9pt;
+}
+
+.how ol,
+.how ul {
+  margin-left: 1.1em;
+}
+
+.how li {
+  margin-bottom: 0.03in;
+}
+
+.tip {
+  color: #555;
+  font-style: italic;
+}
+
+/* ---------- Write-in helpers ---------- */
+.write-line {
+  border-bottom: 1px dashed #888;
+  min-height: 0.22in;
+}
+
+.emptyp {
+  font-size: 8pt;
+  color: #777;
+}
+
+/* ---------- Tag grids (cut-out labels) ---------- */
+.tag-grid {
+  display: grid;
+  gap: 0.16in;
+}
+
+.tag {
+  border: 1.5px solid #333;
+  border-radius: 6px;
+  padding: 0.12in;
+  page-break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag .tag-title {
+  font-weight: bold;
+  font-size: 11pt;
+  margin-bottom: 0.06in;
+}
+
+.tag .row {
+  display: flex;
+  gap: 0.08in;
+  align-items: baseline;
+  margin-top: 0.05in;
+  font-size: 8.5pt;
+}
+
+.tag .row .lbl {
+  white-space: nowrap;
+  color: #333;
+}
+
+.tag .row .fill {
+  flex: 1 1 auto;
+  border-bottom: 1px dashed #999;
+  min-height: 0.16in;
+}
+
+.tag.multi .lines {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.06in;
+}
+
+.scissors {
+  color: #999;
+  font-size: 8pt;
+  letter-spacing: 0.3em;
+  border-top: 1px dashed #bbb;
+  padding-top: 0.02in;
+  margin-top: 0.08in;
+}
+
+/* ---------- Tables (directory style) ---------- */
+table.dir {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table.dir th,
+table.dir td {
+  border: 0.5px solid #777;
+  padding: 0.03in 0.06in;
+  font-size: 8.5pt;
+  vertical-align: bottom;
+}
+
+table.dir th {
+  background: #e9e9e4;
+  font-weight: bold;
+  text-align: left;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table.dir td.num {
+  text-align: center;
+  font-weight: bold;
+  width: 0.3in;
+  color: #555;
+}
+
+table.dir td.fill {
+  height: 0.28in;
+}
+
+.color-sw {
+  display: inline-block;
+  width: 0.55in;
+  height: 0.16in;
+  border: 0.5px solid #777;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+/* ---------- Checklist sections ---------- */
+.kit {
+  border: 1.5px solid #333;
+  border-radius: 6px;
+  padding: 0.09in 0.12in;
+  margin-bottom: 0.14in;
+  page-break-inside: avoid;
+}
+
+.kit h2 {
+  font-size: 13pt;
+  margin-bottom: 0.04in;
+}
+
+.kit .meta {
+  display: flex;
+  gap: 0.3in;
+  font-size: 8.5pt;
+  color: #333;
+  margin-bottom: 0.08in;
+}
+
+.kit .meta .fill {
+  border-bottom: 1px dashed #999;
+  min-width: 1in;
+  display: inline-block;
+}
+
+.kit ul.checklist {
+  list-style: none;
+  columns: 2;
+  column-gap: 0.3in;
+}
+
+.kit ul.checklist li {
+  border-bottom: 1px dashed #bbb;
+  padding: 0.02in 0;
+  padding-left: 0.22in;
+  position: relative;
+  font-size: 9pt;
+  margin-bottom: 0.02in;
+  break-inside: avoid;
+}
+
+.kit ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.05in;
+  width: 0.11in;
+  height: 0.11in;
+  border: 1px solid #555;
+  border-radius: 2px;
+}
+
+/* ---------- Cards (cheat cards) ---------- */
+.card-grid {
+  display: grid;
+  gap: 0.18in;
+}
+
+.cheat-card {
+  border: 1.5px solid #333;
+  border-radius: 6px;
+  padding: 0.14in 0.16in;
+  page-break-inside: avoid;
+}
+
+.cheat-card h2 {
+  font-size: 12pt;
+  margin-bottom: 0.06in;
+}
+
+.cheat-card .steps {
+  margin: 0.08in 0 0 0;
+}
+
+.cheat-card .step {
+  display: flex;
+  gap: 0.1in;
+  margin-bottom: 0.07in;
+}
+
+.cheat-card .step .n {
+  font-weight: bold;
+  color: #555;
+  font-size: 8.5pt;
+  min-width: 0.15in;
+}
+
+.cheat-card .step .fill {
+  flex: 1 1 auto;
+  border-bottom: 1px dashed #999;
+  min-height: 0.18in;
+}
+
+/* ---------- Footer note ---------- */
+.footnote {
+  font-size: 8pt;
+  color: #777;
+  border-top: 0.5px solid #ccc;
+  padding-top: 0.06in;
+  margin-top: 0.14in;
+}
+
+/* ---------- Utility page breaks ---------- */
+.page-break {
+  page-break-before: always;
+}
+
+/* Two-column page layouts */
+.cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.22in;
+}
